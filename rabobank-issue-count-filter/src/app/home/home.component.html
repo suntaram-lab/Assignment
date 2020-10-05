@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="text-center app-header ">
+    <h1>RaboBanK</h1>
+    <p>Issue Count Csv Reader</p>
+  </div>
+
+  <div class="app-body">
+    <div class="app-file-reader">
+      <table>
+        <tr>
+          <td>
+            <input type="file"
+                   #fileImportInput
+                   name="File Upload"
+                   id="txtFileUpload"
+                   class="btn btn-primary"
+                   (change)="fileChangeListener($event)"
+                   accept=".csv"
+                   value={{selectedImageFile}}/>
+          </td>
+          <td style="padding: 5px;">
+            <input type="button"
+                   name="Reset"
+                   id="txtFileReset"
+                   class="btn btn-primary"
+                   (click)="fileReset()"
+                   value="Reset"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="app-data-grid">
+
+      <div *ngIf="csvRecords.length>0">
+        <div>
+          <table>
+            <thead>
+            <th>Issu Count Filter</th>
+            </thead>
+            <tr>
+              <td><label>min</label></td>
+              <td><input type="number" [(ngModel)]="minNum"></td>
+              <td><label>max</label></td>
+              <td><input type="number" [(ngModel)]="maxNum"></td>
+              <td><input type="button"
+                         name="Reset"
+                         id="numFilter"
+                         class="btn btn-primary"
+                         (click)="filterIssueCount()"
+                         value="Submit"/></td>
+            </tr>
+          </table>
+        </div>
+        <table class="table table-responsive table-hover table-striped table-bordered table-sm" border="1"
+               style="width : 50%;">
+          <thead>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Issue Count</td>
+            <td>Date of Birth</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let csvRec of csvRecords | numericRangeFilter:minNum:maxNum;let i=index">
+            <td>{{csvRec.firstName | removequotes}}</td>
+            <td>{{csvRec.lastName | removequotes}}</td>
+            <td>{{csvRec.issueCount}}</td>
+            <td>{{csvRec.dateOfBirth | removequotes}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
