@@ -1,0 +1,14 @@
+com\rabobank\filereader\CSVReader.class
+com\rabobank\filewriter\CSVWriter.class
+com\rabobank\pojo\MonthlyReport.class
+com\rabobank\service\ReportProcessServiceImpl.class
+com\rabobank\pojo\xml\Records.class
+com\rabobank\filereader\FileReaderInterface.class
+com\rabobank\utils\FileUtils.class
+com\rabobank\service\ReportProcessService.class
+com\rabobank\pojo\xml\Record.class
+com\rabobank\constants\FilleConstants.class
+com\rabobank\configuration\AppConfiguration.class
+com\rabobank\filewriter\FileWriterInterface.class
+com\rabobank\runner\MonthlyReportRunner.class
+com\rabobank\filereader\XMLReader.class
